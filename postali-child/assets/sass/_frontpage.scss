@@ -1,0 +1,564 @@
+/**
+ * Template Front Page Styles
+ *
+ * @package Postali Child
+ * @author Postali LLC
+**/
+
+
+
+
+//restructured homepage feb 2023
+.home,
+.page-template-front-page {
+    h2 {
+        font-size: 48px;
+        font-weight: normal;
+    }
+
+    h3 {
+        font-weight: normal;
+    }
+
+    p {
+        &.underlined {
+            position: relative;
+            display:inline;
+
+            &::after {
+                content:"";
+                position:absolute;
+                left:0;
+                width:100%;
+                bottom:-8px;
+                height:4px;
+                background:$gold;
+            }
+        }
+
+        &.caps {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        &.smaller {
+            font-weight: bold;
+        }
+    }
+
+    p,
+    ul li {
+        font-weight: normal;
+    }
+
+    .button-solid {
+        background: $gold;
+        display: inline-block;
+        padding: 15px 55px;
+        line-height: 100%;
+        font-family: $montserrat !important;
+        font-weight: 400 !important;
+        font-size: 20px;
+        color: $blk !important;
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px transparent;
+        position: relative;
+        transition-property: color;
+        transition-duration: 0.25s;
+        text-decoration: none !important;
+        text-transform: uppercase;
+
+        &:hover {
+            color:$white !important;
+        }
+
+        &::before {
+            background: $dkblue;
+        }
+    }
+
+    .homepage-hero {
+        background-size:cover;
+        background-position:center center;
+
+        @media screen and (max-width: $screen-sm) {
+            padding: 0;
+        }
+        .container {
+            max-width: 100%;
+            padding: 80px 10%;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+
+            @media screen and (max-width: $screen-lg) {
+                padding: 080px 5%;
+            }
+
+            @media screen and (max-width: $screen-xs) {
+                padding: 0 0 50px;
+            }
+            .main-content-block {
+                align-self: flex-start;
+                padding:0;
+                width:40%;
+                position:relative;
+                display:grid;
+
+                @media screen and (max-width:$screen-xxl) {
+                    width:50%;
+
+                }
+
+                h1 {
+                    font-family: $jost;
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    line-height: 95%;
+                    margin-bottom: 20px;
+                    margin-top: 0;
+                    color: $gold;
+                }
+
+                h2 {
+                    span {
+                        font-size: 64px;
+                        display: block;
+                        margin-top: 10px;
+                        line-height: 1;
+
+                        @media screen and (max-width:$screen-xl) {
+                            font-size: inherit;
+                            margin-top: 0;
+        
+                        }
+                    }
+                }
+
+                @media screen and (max-width:$screen-ipad) {
+                    width:50%;
+                }
+
+                @media screen and (max-width: $screen-xs) {
+                    padding: 30px;
+                    width: 100%;
+                    h2 {
+                        font-size: 48px;
+                    }
+                    p.larger {
+                        font-size: 18px;
+                    }
+                }
+
+                @include hero-cta;
+            }
+            
+            .scroller {
+                align-self: flex-end;
+                padding:0;
+                display: grid;
+                flex-wrap: wrap;
+                text-align: center;
+                width: 30%;
+                margin-left:auto;
+                @media screen and (max-width: $screen-xs) {
+                    width: 100%;
+                }
+                .scroller-title {
+                    font-family: $montserrat;
+                    font-weight: normal;
+                    letter-spacing: .1em;
+                    color: $gold;
+                    width: 100%;
+                    align-self: center;
+                    margin-bottom: 10px;
+                }
+                .scroller-amount {
+                    font-family: $montserrat;
+                    font-size: 70px;
+                    width: 100%;
+                    text-align: center;
+                    margin: 0;
+                    padding: 0;
+                    line-height: 100%;
+                    color: $white;
+                    font-weight: normal;
+                }
+                #result-slider-header {
+                    display: grid;
+                    .slick-dots {
+                        padding: 0;
+                        margin: 20px 0 0;
+                        li {
+                            display: inline;
+                            margin: 0;
+                            button {
+                                font-size: 0;
+                                padding: 0;
+                                border-radius: 50%;
+                                height: 12px;
+                                width: 12px;
+                                margin-right: 13px;
+                                border: none;
+                                background:$white;
+                            }
+                            &.slick-active {
+                                button {
+                                    background:$gold;
+                                }
+                            }
+                            &:before {
+                                display:none;
+                            }
+                        }
+                    }
+                    .topics {
+                        width: 100%;
+                        font-family: $montserrat;
+                        font-size: 22px;
+                        letter-spacing: .2em;
+                        font-weight: normal;
+                        margin-top: 10px;
+                        color: $gold;
+                        align-self: center;
+                    }
+                }
+            }
+        }
+    }
+
+    section {
+        &.white,
+        &.grey {
+            h2, h3, h4, p, ul li {
+                color:$dkblue;
+            }
+
+            p {
+                a {
+                    color:$gold;
+                    text-decoration: underline;
+                    font-family: $jost;
+                    font-weight: normal;
+                    
+                    &:hover {
+                        color:$dkblue;
+                    }
+                }
+            }
+        }
+
+        &.white {
+            background:$white;
+        }
+
+        &.black {
+            background:$dkgray;
+
+            h2 {
+                color:$gold;
+            }
+
+            h3, h4, p, ul li {
+                color:$white;
+            }
+        }
+
+        &.grey {
+            background:$ltgray;
+        }
+
+        &.blue {
+            &.bordered {
+                border: 30px solid $dkgray;
+                background: $medgray;
+            }
+        }
+
+        &.lt-blue {
+            background:$dkgray;
+        }
+
+        .container {
+            @media screen and (max-width:$screen-sm) {
+                padding:0 5%;
+            }
+
+            &.wide {
+                padding:0;
+
+                .columns {
+                    .column-66 {
+                        padding:80px 3% 80px 10%;
+
+                        @media screen and (max-width:$screen-lg) {
+                            padding:60px 3% 60px 5%;
+                        }
+
+                        @media screen and (max-width:$screen-sm) {
+                            padding:0 3% 60px 5%;
+                        }
+                    }
+                }
+            }
+
+            &.skinny {
+                padding:80px 0;
+                max-width: 70%;
+                margin:0 auto;
+            }
+        }
+
+        &.panel-1 {
+            .container {
+                padding-bottom: 40px;
+                
+                .columns {
+                    .column-full {
+                        display:block;
+
+                        p {
+                            max-width: 80%;
+                            margin:30px auto;
+
+                            @media screen and (max-width:$screen-xl) {
+                                max-width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.panel-2 {          
+            .container {
+                .columns {
+                    .column-66 {
+                        flex-wrap: wrap;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        width:63%;
+
+                        .pi-left {
+                            width: 60%;
+
+                            @media screen and (max-width:$screen-lg) {
+                                width:50%;
+                            }
+
+                            @media screen and (max-width:$screen-ipad) {
+                                width:100%;
+                            }
+                        }
+
+                        .pi-right {
+                            width: 30%;
+
+                            @media screen and (max-width:$screen-lg) {
+                                width:40%;
+                            }
+
+                            @media screen and (max-width:$screen-ipad) {
+                                width:100%;
+                            }
+
+                            h3 {
+                                font-size: 22px;
+                                font-weight: bold;
+                                margin-top: 65px;
+
+                                @media screen and (max-width:$screen-ipad) {
+                                    margin-top: 0;
+                                }
+                            }
+
+                            ul {
+                                li {
+                                    a {
+                                        color:$dkblue;
+                                        font-weight: normal;
+                                        text-decoration: underline;
+
+                                        &:hover {
+                                            color: $ltblue;
+                                        }
+                                    }
+
+                                    &::before {
+                                        content: "•";
+                                        position: absolute;
+                                        left: -25px;
+                                        top: 0;
+                                        font-size: 25px;
+                                        color: $gold;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .column-33 {
+                        background-size: cover;
+                        background-position: center;  
+                        text-align: center;
+                        position: relative;
+                        width:37%;
+
+                        .button-solid {
+                            position: absolute;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: 300px;
+                            bottom: 10%;
+                            padding:15px 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.panel-3 {
+            .container {
+                .columns {
+                    position: relative;
+                    align-items: normal;
+
+                    &::before {
+                        position: absolute;
+                        left: 50%;
+                        height: 100%;
+                        top: 0;
+                        width: 1px;
+                        border-left: 1px solid #CCC;
+                        content: "";
+
+                        @media screen and (max-width:$screen-ipad) {
+                            display:none;
+                        }
+                    }
+
+                    .column-50 {
+                        @media screen and (max-width:$screen-sm) {
+                            width:100%;
+
+                            &:last-of-type {
+                                margin-top: 60px;
+                            }
+                        }
+
+                        a.button-solid {
+                            position: absolute !important;
+                            bottom: 0 !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.panel-4 {
+            @include attorney-bio-block;
+
+            .attorney-details {
+                justify-content: center;
+
+                .attorney-headshot {
+                    border: 4px solid $white;
+                }
+
+                .attorney-copy {
+                    text-align: center;
+                    max-width: 85%;
+                }
+            }
+        }
+
+        &.panel-5 {
+            background: #C1C1C1;
+            background: linear-gradient(0deg,rgba(193, 193, 193, 1) 0%, rgba(255, 255, 255, 1) 100%);
+            
+            .container {
+                .columns {
+                    justify-content: space-evenly;
+                    .column-33 {
+                        padding:0 2%;
+
+                        p a {
+                            color:$dkblue;
+                            text-decoration: underline;
+
+                            &:hover {
+                                color:$gold;
+                            }
+                        }
+                        
+                        &:nth-child(-n+3) {
+                            margin-bottom:50px;
+                        }
+                        .smaller {
+                            margin-bottom:0;
+                        }
+                        .yellow-number {
+                            @include yellow-number;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.panel-6 {
+            .result-header {
+                position: relative;
+                padding: 10px 25px;
+                background:$gold;
+                font-family: $montserrat;
+                letter-spacing: .1em;
+                font-weight: bold;
+                font-size: 18px;
+            }
+
+            p {
+                margin: 0;
+            }
+
+            .reviewer {
+                font-family: $montserrat;
+                color: $white;
+                font-size: 30px;
+                font-weight: normal;
+                display: flex;
+                align-items: center;
+                margin-top: 50px;
+
+                .stars {
+                    position: relative;
+                    width: auto;
+                    display: flex;
+                    margin-right: 15px;
+    
+                    &::after {
+                        content: "★ ★ ★ ★ ★";
+                        color: $gold;
+                        font-size: 20px;
+                        letter-spacing: 2px;
+                    }
+                }
+            }          
+            
+            .column-50 {
+                @media screen and (max-width:$screen-sm) {
+                    &:last-of-type {
+                        margin-top: 60px;
+                    }
+                }
+            }
+        }
+
+        &.panel-7 {
+            background-size: cover;
+            background-position: center center;
+
+            @include hero-cta;
+        }
+    }
+}

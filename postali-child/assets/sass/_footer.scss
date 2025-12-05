@@ -1,0 +1,68 @@
+/**
+ * Footer Styles
+ *
+ * @package Postali Child
+ * @author Postali LLC
+**/
+
+.footer-logo {
+    padding: 80px 0;
+    margin: 0 !important;
+    background:$dkgray;
+    img {
+        margin: 0 auto;
+        max-width: 370px;
+        @media screen and (max-width: $screen-xxs) {
+            width: 90%;
+        }
+    }
+}
+
+.footer-contact {
+    background:$dkgray;
+    @include contact-block;
+    // footer menu styles //
+
+    .column-contact {
+        .footer-phone {
+            color:$white;
+        }
+        
+        .column-33 {
+            &.col1 {
+                margin-right:7%;
+            }
+        }
+    }
+
+    #menu-footer-menu,
+    #menu-footer-menu-spanish {
+        padding: 0;
+        li {
+            list-style-type: none;
+            margin: 0 5px;
+            display: inline;
+            &:first-child {
+                margin-top:5px;
+            }
+            a {
+                @include font-whitecaps;
+                background:$medgray;
+                font-size:20px;
+                margin-top:0;
+                &:hover {
+                    color:$gold;
+                }
+            }
+            &:before {
+                display:none;
+            }
+        }
+    }
+    @media screen and (max-width: $screen-xxs) {
+        margin-top: 0;
+        .column-33, .column-66 {
+            flex-basis: 100% !important;
+        }
+    }
+}

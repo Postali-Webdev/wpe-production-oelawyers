@@ -1,0 +1,328 @@
+/**
+ * Web Font Styles, H Styles, Body Text Styles
+ *
+ * @package Postali Child
+ * @author Postali LLC
+**/
+
+/* Fonts */
+body, h1, h2, h3, h4, h5, h6, p, a, ul {
+    // color: $body-text-color;
+} 
+p, a, ul, ol {
+
+}
+ul li, ol li {
+    margin: 0 0 0 20px;
+    font-size: 18px;
+}
+dl, blockquote, img {
+
+}
+
+ul {
+    font-family: $jost;
+    font-size:18px;
+    line-height: 160%;
+    color:$white;
+    padding:0;
+    li {
+        margin-left: 25px;
+        list-style-type: none;
+        position:relative;
+        &:before {
+            content:"•";
+            position:absolute;
+            left:-25px;
+            top:0;
+            font-size: 13px;
+        }
+        a {
+            font-family: $jost;
+            font-size:18px;
+            line-height: 160%;
+        }
+    }
+    &.one-column {
+        text-align: left;
+        li {
+            list-style-type:none;
+            a {
+                @include font-whitecaps;
+                @include attorney-details;
+                background:$bg;
+                &:hover {
+                    color:$blk;
+                        &:before {
+                            transform:scaleX(1);
+                        }
+                    }
+
+            }
+            &:before {
+                display:none;
+            }
+        }
+    }
+    &.two-column {
+        -moz-column-count:2;
+        column-count: 2;
+        text-align: left;
+        li {
+            list-style-type:none;
+            a {
+                @include font-whitecaps;
+                @include attorney-details;
+                background:$bg;
+                &:hover {
+                    color:$blk;
+                        &:before {
+                            transform:scaleX(1);
+                        }
+                    }
+
+            }
+            &:before {
+                display:none;
+            }
+        }
+    }
+    &.three-column {
+        /*-moz-column-count:3;
+        -webkit-column-count:3;
+        column-count: 3;
+        -webkit-column-gap: 20px;
+        -moz-column-gap: 20px;
+        column-gap: 20px;*/
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        -moz-column-gap: 20px;
+             column-gap: 20px;
+        grid-column-gap: 20px;
+        text-align: left;
+        margin-left: 10%;
+        width: 90%;
+        padding: 0;
+        @media screen and (max-width:$screen-ipad) {
+            grid-template-columns: 1fr 1fr;
+        }
+        @media screen and (max-width:$screen-sm) {
+            grid-template-columns: 1fr;
+        }
+        li {
+            list-style-type:none;
+            margin:0;
+            
+            a {
+                @include font-whitecaps;
+                @include attorney-details;
+                background:$mdblue;
+                &:hover {
+                    color:$blk;
+                    &::before {
+                        transform:scaleX(1);
+                    }
+                }
+
+            }
+            &:before {
+                display:none;
+            }
+        }
+    }
+}
+
+ol li {
+    font-size:18px;
+    line-height: 160%;
+    margin-bottom:30px;
+    font-family: $jost;
+    font-weight: normal;
+    color: inherit;
+}
+
+a {
+    text-decoration:none;
+    transition:$trans;
+    &:hover {
+        // color:$lt-red;
+        text-decoration:none;
+    }
+}
+
+p, h1, h2, h3, h4 {
+    color:$white;
+}
+
+p {
+    font-size:18px;
+    line-height: 160%;
+    margin-bottom:30px;
+    font-family: $jost;
+    font-weight: normal;
+    &.larger {
+        font-size:23px;
+    }
+    &.smaller {
+        font-family:$montserrat;
+        text-transform: uppercase;
+        font-size: 18px;
+        letter-spacing: .1em;
+        font-weight:bold;
+        &-body {
+            font-family:$jost;
+            letter-spacing: .1em;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        a {
+            font-family:$montserrat !important;
+            text-transform: uppercase;
+            font-size: 18px;
+            letter-spacing: .1em;
+            font-weight:bold !important;
+        }
+    }
+    a {
+        font-family: inherit;
+        transition:$trans;
+        &:hover {
+            color:$gold;
+            text-decoration: underline;
+            transition:$trans;
+        }
+    }
+    &.smaller-yellow {
+        font-size: 16px;
+        letter-spacing: .1em;
+        color: #F2C100;
+        font-weight: bold;
+        line-height: 150%;
+        text-transform: uppercase;
+        text-align: left !important;
+    }
+}
+
+// font colors, styles //
+
+.yellow { color:$gold; }
+.whitecaps {
+    @include font-whitecaps;
+}
+
+h1 {
+    font-family: $montserrat;
+    font-size: 70px;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 95%;
+    margin-bottom: 10px;
+    margin-top:5px;
+
+    @media screen and (max-width: $screen-xs) {
+        font-size: 55px;
+    }
+}
+
+h2 {
+    font-family: $montserrat;
+    font-size: 50px;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 95%;
+    margin-bottom: 10px;
+    margin-top:0;
+    @media screen and (max-width:$screen-md) {
+        font-size:60px;        
+    }
+    @media screen and (max-width: $screen-xs) {
+        font-size: 50px;
+    }
+}
+
+h3 {
+    font-family: $montserrat;
+    font-size: 35px;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 105%;
+    margin-bottom: 10px;
+    margin-top:0;
+    width: 100%;
+}
+h4 {
+    font-family: $montserrat;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: normal;
+    line-height: 95%;
+    margin-bottom: 10px;
+    margin-top:0;
+}
+
+#breadcrumbs {
+    padding:0;
+    margin:-5px 0 8px;
+    span {
+        font-family:$jost;
+        font-size:16px;
+        letter-spacing:.1em;
+        color:$gold;
+        font-weight: bold;
+        line-height:150%;
+        text-transform: uppercase;
+        a {
+            color:$gold;
+            font-weight:bold;
+        }
+    }
+}
+
+
+// homepage specific styles //
+
+.home, .page-template-front-page {
+    h1 {
+        font-family:$jost;
+        font-size:16px;
+        letter-spacing:.1em;
+        color:$gold;
+        font-weight: bold;
+        line-height:150%;
+        margin-top:0;
+    }
+}
+
+// Translation button
+a.en-espanol {
+    position: absolute;
+    top: 15px;
+    left: auto;
+    right: 60px;
+    color: $gold;
+    text-decoration: underline;
+    font-family: $montserrat;
+    font-weight: $bold;
+    letter-spacing: .3px;
+    &:hover {
+        color: $gold;
+    }
+    @media screen and (max-width: $screen-md) {
+        display: none;
+    }
+    &_hero {
+        position: relative;
+        top: 0;
+        left: auto;
+        right: auto;
+        color: $gold;
+        text-decoration: underline;
+        font-family: $montserrat;
+        font-weight: $bold;
+        letter-spacing: .4px;
+        font-size: 18px;
+        &:hover {
+            color: $white;
+        }
+    }
+}

@@ -1,0 +1,665 @@
+/**
+ * Header Styles
+ *
+ * @package Postali Child
+ * @author Postali LLC
+**/
+
+/**
+ * Header Styles
+ *
+ * @package Postali Child
+ * @author Postali LLC
+**/
+
+header {
+    padding: 0;
+    background:$dkgray;
+    position: fixed;
+    width: 100%;
+    top:0;
+    z-index: 10000;
+
+    @media screen and (max-width:$screen-lg) {
+        height:75px;
+    }
+
+    #header-top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+        height:100%;
+
+        &.container {
+            max-width: 100%;
+            padding: 0 3%;
+            @media screen and (max-width: $screen-lg) {
+                padding:15px 0;
+            }
+        }
+        #header-top_left {
+            flex-basis: 25%;
+            flex-direction: column;
+            display: flex;
+            @media screen and (max-width: $screen-lg) {
+                margin-left:2%;
+                flex-basis: 33%;
+            }
+            @media screen and (max-width: $screen-sm) {
+                margin-left:2%;
+                flex-basis: 36%;
+            }
+            @media screen and (max-width: $screen-xxs) {
+                flex-basis: 60%;
+            }
+            @media screen and (max-width: $screen-xxxs) {
+                flex-basis: 70%;
+            }
+        }
+        #header-top_right {
+            flex-direction: column;
+            display: flex;
+            flex-basis: 75%;
+            @media screen and (max-width: $screen-lg) {
+                flex-basis: 66%;
+            }
+            @media screen and (max-width: $screen-sm) {
+                flex-basis: 50%;
+            }
+            @media screen and (max-width: $screen-xxs) {
+                flex-basis: 40%;
+            }
+            @media screen and (max-width: $screen-xxxs) {
+                flex-basis: 30%;
+            }
+            #header-top_menu {
+                justify-content: flex-end;
+                display:flex;
+                align-items: center;
+                #menu-main-menu,
+                #menu-main-menu-spanish {
+                    list-style: none;
+                    padding: 0;
+                    padding-right: 0px;
+                    transition: $trans;
+                    padding-right: 0;
+                    display: flex;
+                    position: relative;
+                    text-align: right;
+                    margin-bottom:0;
+                    margin-top:0;
+                    @media screen and (max-width: $screen-lg) {
+                        display:none;
+                        overflow-x: hidden;
+
+                    }
+                    li {
+                        float: left;
+                        transition:.2s ease all;
+                        margin:0 14px;
+                        position:relative;
+                        list-style-type: none;
+                        transform: perspective(1px) translateZ(0);
+                        @media screen and (max-width: $screen-lg) {
+                            margin:0 5px;
+                            &:last-of-type {
+                                margin: 0;
+                            }
+                        }
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            z-index: -1;
+                            left: 51%;
+                            right: 51%;
+                            bottom: 38px;
+                            background:$gold;
+                            height: 2px;
+                            transition-property: left, right;
+                            transition-duration: 0.2s;
+                            transition-timing-function: ease-out;
+                            top: 80px;
+                            @media screen and (max-width: $screen-lg) {
+                                display: none;
+                            }
+                        }
+                        @media screen and (max-width:$screen-ipad) {
+
+                        }
+                        &:hover {
+                            transition:.2s ease all;
+                            > ul {
+                                display: block;
+                                border-top: 0;
+                                transition:.2s ease all;
+                                @media screen and (max-width:$screen-lg) {
+                                    display:none;
+                                }
+                            }
+                            &:before {
+                                left:0;
+                                right:0;
+                            }
+                            &:after {
+                                width: 0;
+                                height: 0;
+                                border-style: solid;
+                                border-width: 8px 7px 0 7px;
+                                border-color: $gold transparent transparent transparent;
+                                content:"";
+                                position:absolute;
+                                top:80px;
+                                left:calc(50% - 7px);
+                                @media screen and (max-width: $screen-lg) {
+                                    display: none;
+                                }
+                            }
+                        }
+                        a {
+                            display: inline-block;
+                            padding: 45px 0;
+                            text-decoration: none;
+                            margin: 0;
+                            font-size: 17px;
+                            font-family:$montserrat;
+                            color:$white;
+                            position:relative;
+                            font-weight:400;
+                            text-transform: uppercase;
+
+                            &:hover {
+                                // hover underline in here //
+                                color:$white;
+                            }
+                            @media screen and (max-width:$screen-lg) {
+                                padding: 45px 5px;
+                                letter-spacing: 0;
+                                font-size: 20px;
+                            }
+                            @media screen and (max-width:$screen-ipad) {
+                                padding: 45px 5px;
+                                font-size:18px;
+                            }
+                            @media screen and (max-width:$screen-lg) {
+                                padding: 9px 15px;
+                                width:100%;
+                                text-align: left;
+                                z-index: 600;
+                                background: $dkgray;
+                            }
+                        }
+                        &.current-menu-parent {
+                            a {
+                                color:$gold;
+                            }
+
+                        }
+                        &.current_page_item,
+                        &.current-menu-item,
+                        &.current-page-ancestor {
+                            // current page underline in here //
+                            &:before {
+                                left:0;
+                                right:0;
+                            }
+                            &:after {
+                                width: 0;
+                                height: 0;
+                                border-style: solid;
+                                border-width: 8px 7px 0 7px;
+                                border-color: $gold transparent transparent transparent;
+                                content:"";
+                                position:absolute;
+                                top:80px;
+                                left:calc(50% - 7px);
+                                @media screen and (max-width: $screen-lg) {
+                                    display: none;
+                                }
+                            }
+                        }
+                        // contact button - last menu item 
+                        &:last-child {
+                            a {
+                                @include button-animation;
+                                padding: 10px 55px !important;
+                                color:$dkgray;
+                                font-family: $montserrat;
+                                background: $gold;
+                                display: block;
+                                margin-top:40px;
+                                font-size:18px;
+                                @media screen and (max-width: $screen-lg) {
+                                    padding:10px 45px !important;
+                                }
+                                &:before {
+                                    background:$gold !important;
+                                }
+                                &:after {
+                                    display:none;
+                                }
+                                &:hover {
+                                    color:$blk;
+                                }
+                            }
+                            &:hover {
+                                &:after {
+                                    display:none;
+                                }
+                            }
+                        }
+                        ul.sub-menu {
+                            width: auto;
+                            white-space: nowrap;
+                            transition: $trans;
+                            position: absolute;
+                            overflow: visible;
+                            background: $ltgray;
+                            z-index: 500;
+                            margin-top:-12px;
+                            padding:15px 20px;
+                            @media screen and (max-width:$screen-lg) {
+                                position:relative;
+                                background:none;
+                                max-height: 260px;
+                                overflow-x: hidden;
+                                overflow-y: scroll;
+                                box-sizing: border-box;
+                            }
+                            a {
+                                color:$mdgray;
+                                &:after {
+                                    content: "";
+                                    position: absolute;
+                                    height: 35%;
+                                    top: 35%;
+                                    border-right: none !important;
+                                    right: 0;
+                                }
+                            }
+                            li {
+                                margin: 0;
+                                display: block;
+                                text-align: left;
+                                transition:.2s ease all;
+                                padding:0;
+                                position:relative;
+                                margin:6px 0;
+                                &:hover {
+                                    transition:$trans;
+                                    
+                                    a {
+                                        color:$dkblue;
+                                        &:hover {
+                                            color:$blk;
+                                                &:before {
+                                                    transform:scaleX(1);
+                                                    top:9px;
+                                                }
+                                            }
+                                        
+                                    }
+                                }
+                                    a {
+                                        @include font-whitecaps;
+                                        @include attorney-details;
+                                        font-size: 18px;
+                                        line-height: 100%;
+                                        margin: 0;
+                                        padding: 0;
+                                        z-index: 1;
+                                        font-weight: 400;
+                                        font-family: $montserrat;
+                                        transition:$trans;
+                                        width:100%;
+                                        background:$ltgray;
+                                        color:$mdgray;
+                                        &:before {
+                                            top:9px;
+                                        }
+                                        
+                                        @media screen and (max-width:$screen-ipad) {
+                                            font-size:18px;
+                                        }
+                                        @media screen and (max-width:$screen-lg) {
+                                            text-transform:none;
+                                            padding:17px 20px 17px 35px;
+                                            box-sizing: border-box;
+                                        }
+                                }
+                                &:after {
+                                    display:none;
+                                }
+    
+                                &:hover {
+                                    &:after {
+                                        right:10px;
+                                        transition:.2s ease all;
+                                    }
+                                }
+                                &.current_page_item {
+                                    background: none;
+                                    a {
+                                        color:$dkblue !important;
+                                    }
+                                    @media screen and (max-width: $screen-lg) {
+                                        width: 100%;
+                                        a {
+                                            background: none;
+                                        }
+                                    }
+                                }
+                                &:before {
+                                    display:none;
+                                }
+                                &.current_page_item {
+                                    a {
+                                        color:$blk;
+                                        box-shadow: inset 0 -0.075em $gold,inset 0 -0.6em $gold !important;
+                                        display: inline;
+                                        &:hover {
+                                            &:before {
+                                                display:none;
+                                            }
+                                        }
+                                        @media screen and (max-width: $screen-lg) {
+                                            box-shadow: inset 0 -0.075em $gold,inset 0 -0.2em $gold !important;
+                                            display: block;
+                                        }
+                                    }
+                                }
+                                &:last-child {
+                                    margin: 0;
+                                    display: block;
+                                    text-align: left;
+                                    transition:.2s ease all;
+                                    padding:0;
+                                    position:relative;
+                                    margin:6px 0;
+                                    a {
+                                        @include font-whitecaps;
+                                        @include attorney-details;
+                                        font-size: 18px;
+                                        line-height: 100%;
+                                        margin: 0;
+                                        padding: 0 !important;
+                                        z-index: 1;
+                                        font-weight: 400;
+                                        font-family: $montserrat;
+                                        transition:$trans;
+                                        width:100%;
+                                        background:$ltgray;
+                                        color:$mdgray;
+                                        &:before {
+                                            top:9px;
+                                        }
+                                        @media screen and (max-width:$screen-ipad) {
+                                            font-size:18px;
+                                        }
+                                    }
+                                    &:hover {
+                                        &:after {
+                                            display:none;
+                                        }
+                                    }
+                                    @media screen and (max-width: $screen-lg) {
+                                        a {
+                                            font-size: 18px;
+                                            text-transform:none;
+                                            padding: 17px 20px 17px 35px !important;   
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        &:hover {
+                            ul {
+                                opacity:1;
+                                transform:translate(0);
+                                transition: .3s ease all;
+                            }
+                        }
+                    }
+                    ul {
+                        display: none;
+                        margin-left: 0;
+                        li {
+                            float: none;
+                            transition:.2s ease all;
+                        }
+                    }
+                }
+                // mobile menu styling //
+
+                #header-top_mobile {
+                    display:none;
+                    @media screen and (max-width: $screen-lg) {
+                        display:block;
+                        margin-right:2%;
+                    }
+                    @media screen and (max-width: $screen-lg) {
+                        display:block;
+                        margin-right:13px;
+                    }
+                }
+                #head-mobile {
+                    display:none;
+                    @media screen and (max-width: $screen-lg) {
+                        display:block;
+                    }
+                }
+            }
+        }
+    }
+    #header-top_mobile {
+        display:none;
+        @media screen and (max-width: $screen-lg) {
+            display:block;
+        }
+    }
+    #head-mobile {
+        display:none;
+        @media screen and (max-width: $screen-lg) {
+            display:block;
+        }
+    }
+}
+
+// styles for mobile accordion toggle //
+
+.accordion-toggle {
+    display: none;
+}
+
+@media screen and (max-width:$screen-lg) {
+
+    .accordion-toggle {
+        z-index: 1000;
+        height: 43px;
+        width: 43px;
+        display: block;
+        position: absolute;
+        right: 13px;
+        top: 8px;
+        .icon-drw-chevron-down {
+            font-size: 24px;
+            padding: 10px !important;
+            display: block;
+            transition:$trans;
+            color: $white;
+        }
+        &.toggle-background {
+            .icon-drw-chevron-down {
+                transform:rotateZ(180deg);
+                transition:$trans;
+            }
+        }
+    }
+
+    #menu-icon {
+        width: 40px;
+        height: 20px;
+        position: relative;
+        display: block;
+        margin-top: 0;
+        margin-right: 0;
+        .line {
+            display: block;
+            background:$white;
+            width: 35px;
+            height: 3px;
+            position: absolute;
+            left: 0;
+            transition: all 0.4s;
+            -webkit-transition: all 0.4s;
+            -moz-transition: all 0.4s;
+                &.line-1 {
+                    top: 0;
+                }
+                &.line-2 {
+                    top: 50%;
+                }
+                &.line-3 {
+                    top: 100%;
+                }
+        }
+            &.active {
+                .line-1 {
+                    transform: translateY(10px) translateX(0) rotate(45deg);
+                    -webkit-transform: translateY(10px) translateX(0) rotate(45deg);
+                    -moz-transform: translateY(10px) translateX(0) rotate(45deg);
+                }
+                .line-2 {
+                    opacity: 0;
+                }
+                .line-3 {
+                    transform: translateY(-10px) translateX(0) rotate(-45deg);
+                    -webkit-transform: translateY(-10px) translateX(0) rotate(-45deg);
+                    -moz-transform: translateY(-10px) translateX(0) rotate(-45deg);
+                }
+            }
+        }
+  
+  
+        .toggle-background {
+            background: none;
+        }
+  
+        .toggle-rotate {
+            transform: rotate(180deg) !important;
+        }
+  
+        .toggle-nav {
+            float: right;
+            width: 2em;
+            height: 2em;
+            text-align: center;
+            font-size: 2em;
+            line-height: 2em;
+            color: #fff;
+            transition: $trans;
+            cursor: pointer;
+            &:hover {
+                    color: #fff;
+                }
+        }
+
+    #menu-main-menu {
+        display: none;
+        top: 75px;
+        width: 100%;
+        position: absolute !important;
+        overflow-y: scroll;
+        height:auto;
+        margin: 0;
+        padding-left: 0;
+        background:$dkgray;
+        li {
+            list-style: none;
+            position: relative;
+            margin-bottom: 0;
+            display:inline-block;
+            width:100%;
+            margin-left:0;
+            a {
+                  padding: 16px 20px 14px;
+                  text-decoration: none;
+                  font-size: 16px;
+                  border-bottom: 1px solid #E7E7E7;
+                  display: block;
+                  margin-bottom:0;
+                  line-height:100%;
+              }
+              ul {
+                    background: #f6f8f8;
+                    font-size: .8em;
+                    display: none;
+                a {
+                    color: $white;
+                    border-bottom: 1px solid #E2E2E2;
+                    text-transform: uppercase;
+                    font-size: 14px;
+                    line-height: 100%;
+                    padding: 20px 0 15px 30px;
+                    &:hover {
+                        color:$ltblue;
+                    }
+                }
+                ul {
+                    display: none;
+                }
+            }
+        }
+        .accordion-toggle {
+            position: absolute;
+            top: 0;
+            z-index: 999;
+            font-size: 15px;
+            line-height: 100%;
+            right: 0;
+            font-family: "icomoon";
+            padding: 0 18px;
+            top: -2px;
+            transition: all 0.25s ease;
+            border-left: none;
+            height:50px;
+            .icon-arrow-down {
+                display: block;
+                transition: all 0.25s ease;
+                transform:rotate(0);
+                margin-top:-3px;
+                &:before {
+                    content: "\e910";
+                    font-family: icomoon;
+                    font-size: 20px;
+                    color:$white;
+                }
+            }
+            .fa {
+                 transition: all 0.25s ease;
+            }
+        }
+    }
+}
+
+a.skip-link {
+    background: #fff;
+    color: $blk !important;
+    font-weight: 400;
+    left: 60px;
+    padding: 10px 20px;
+    position: absolute;
+    transform: translateY(-100%);
+    z-index: 100000;
+    top: 0;
+    font-size: 15px;
+    opacity:0;
+
+    &:focus {
+        transform: translateY(0%);
+        transition: transform 0.3s;
+        top: 40px;
+        opacity:1;
+    }
+}
