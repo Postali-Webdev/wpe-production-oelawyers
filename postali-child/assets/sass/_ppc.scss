@@ -1,4 +1,10 @@
 .single-ppc {
+    header {
+        padding: 26px 0;
+        @media screen and (max-width: 600px) {
+            padding: 0;
+        }
+    }
     .body-container.ppc {
         margin: 62px auto 0 auto !important;
         .bottom-border {
@@ -7,6 +13,13 @@
         section {
             padding: 80px 40px;
         }
+        .entry-content {
+            section.wp-block-group:first-of-type {
+                @media screen and (max-width: 600px) {
+                    padding-top: 60px !important;
+                }
+            }
+        }
     }
     .body-container .wp-block-group {
         .wp-block-group {
@@ -14,7 +27,7 @@
             padding-left: 0;
             padding-right: 0;
             background: $white !important;
-            p:not(.gold-subtitle),
+            p:not(.gold-subtitle):not(.yellow-ribbon-contact),
             h2,
             h3,
             h4,
@@ -178,10 +191,14 @@
                 object-fit: contain;
             }
             &.banner-bg-img {
-                background-image: url('/wp-content/uploads/2025/10/homepage-hero-bg.jpg') !important;
+                background-image: url('/wp-content/uploads/2025/10/pre-footer-bg.jpg') !important;
                 background-repeat: no-repeat !important;
                 background-size:cover !important;
                 position: relative;
+                @media screen and (max-width: $screen-xs) {
+                    background-size: 900px 350px !important;
+                    background-position: top center !important;
+                }
                 &:before {
                     content: "";
                     position: absolute;
@@ -191,6 +208,12 @@
                     height: 100%;
                     background: $blk;
                     opacity: 0.5;
+                    @media screen and (max-width: $screen-xs) {
+                        height: calc(100% - 350px);
+                        opacity: 1;
+                        bottom: 0;
+                        top: unset;
+                    }
                 }
                 & > * {
                     position: relatve;
@@ -230,7 +253,7 @@
             }
         }
         .bg-black-box {
-            background: $dkgray !important;
+            background: rgba(0, 0, 0, .65) !important;
             padding: 50px;
             position: relative;
             top: -80px;
@@ -238,20 +261,41 @@
             p:not(.yellow-ribbon-contact), a, h2 {
                 color: $white !important;
             }
+            h2 {
+                text-transform: uppercase !important;
+                line-height: 95% !important;
+            }
             @media screen and (max-width: $screen-lg) {
                 padding: 50px 0 !important;
 
             }
+            @media screen and (max-width: $screen-xs) {
+                background: none !important;
+                .wp-block-group__inner-container {
+                padding: 0 !important;
+                }
+            }
             .yellow-ribbon-contact {
-                color: $dkgray !important;
+                color: $blk !important;
                 font-weight: $bold;
-                background: $yellow;
-                padding: 5px 30px;
+                background: $gold;
+                padding: 15px 55px;
                 position: absolute;
                 bottom: 0;
                 right: 0;
                 width: fit-content;
                 margin: 0;
+                font-size: 24px;
+                @media screen and (max-width: $screen-xs) {
+                    padding: 15px 25px;
+                    position: relative;
+                }
+                &:hover {
+                    color: $dkblue !important;
+                    a {
+                        color: $dkblue !important;
+                    }
+                }
                 a, p {
                     color: $dkgray !important;
                     text-decoration: none;
@@ -267,6 +311,11 @@
         background: none;
         max-width: 600px;
         margin: 0 0 0 auto;
+        .gform_title {
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
     }
     .btn {
         font-family: $montserrat;
