@@ -15,6 +15,7 @@
         }
         .entry-content {
             section.wp-block-group:first-of-type {
+                padding-top: 68px !important;
                 @media screen and (max-width: 600px) {
                     padding-top: 60px !important;
                 }
