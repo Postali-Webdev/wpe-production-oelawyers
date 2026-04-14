@@ -838,6 +838,8 @@
             flex-basis: 100%;
             min-width: 900px;
             margin: 0 auto;
+            flex-direction: column;
+            
             .author-box {
                 display: flex;
                 margin-bottom: 30px;
