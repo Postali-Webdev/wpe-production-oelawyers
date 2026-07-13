@@ -40,10 +40,15 @@ if( $review_schema ) : ?>
     <!-- Add JSON Schema here -->
     <?php 
     // Global Schema
+
+    if(is_front_page()) {
+
     $global_schema = get_field('global_schema', 'options');
     if ( !empty($global_schema) ) :
         echo '<script type="application/ld+json">' . $global_schema . '</script>';
     endif;
+
+    }
 
     // Single Page Schema
     $single_schema = get_field('single_schema');
