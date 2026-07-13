@@ -50,7 +50,11 @@ if( $review_schema ) : ?>
 
     }
 
-    ?>
+    // Single Page Schema
+    $single_schema = get_field('single_schema');
+    if ( !empty($single_schema) ) :
+        echo '<script type="application/ld+json">' . $single_schema . '</script>';
+    endif; ?>
 <?php endif; ?>
 
 <meta http-equiv="Content-Type" content="text/html; charset=<?php bloginfo( 'charset' ); ?>">
